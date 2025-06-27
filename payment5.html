@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment KHQR</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9fafb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .qr-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow:
+        0 0 15px rgba(37, 99, 235, 0.4),
+        0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .qr-container h1 {
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      color: #111827;
+    }
+
+    .qr-container img {
+      width: 250px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    .note {
+      font-size: 1rem;
+      color: #4b5563;
+    }
+
+    .countdown {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #2563eb;
+    }
+  </style>
+
+  <script>
+    // Redirect after 10 seconds (adjust as needed)
+    let seconds = 120;
+    const redirectUrl = "success.html"; // Change to your target page
+
+    function startCountdown() {
+      const countdownElement = document.getElementById("countdown");
+      const interval = setInterval(() => {
+        seconds--;
+        countdownElement.textContent = `Redirecting in ${seconds} seconds...`;
+        if (seconds <= 0) {
+          clearInterval(interval);
+          window.location.href = redirectUrl;
+        }
+      }, 1000);
+    }
+
+    window.onload = startCountdown;
+  </script>
+</head>
+<body>
+
+  <div class="qr-container">
+    <h1>Scan to Pay with KHQR</h1>
+    <h2>1. ធ្វើការ Scanបង់ប្រាក់ជាមុនសិន</h2>
+    <h2>2.ធ្វើការScreenshotវិកាយបត្ររបស់អ្នកទៅឲក្រុមការងារ</h2>
+    <img src="img/5$.jpg" alt="KHQR Code" />
+    <p class="note">Use ABA, Acleda, Wing, or any KHQR-supported app</p>
+    <p class="countdown" id="countdown">Redirecting in 10 seconds...</p>
+  </div>
+
+</body>
+</html>
